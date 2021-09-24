@@ -30,6 +30,8 @@ require_once("classes/Login.php");
 // so this single line handles the entire login process. in consequence, you can simply ...
 $login = new Login();
 
+define('APP_PATH', realpath(dirname(__FILE__)));
+
 // ... ask if we are logged in here:
 if ($login->isUserLoggedIn() == true) {
     // the user is logged in. you can do whatever you want here.
@@ -59,6 +61,9 @@ if ($login->isUserLoggedIn() == true) {
 	elseif ($page == 'home') {
 	include("views/home.php");
 	}
+        elseif ($page == 'sepaexport') {
+        include("views/sepa_xml.php");
+        }
 	else { 
 	echo '<meta http-equiv="refresh" content="0; url=index.php?page=home" />';
 	}
