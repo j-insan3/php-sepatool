@@ -29,11 +29,13 @@ if ($invoeren == 'debtor') {
   <label>Mandaat:</label>
   <input type="text" name = "debtor_mandate"><br>
 </div>
+<div class="field">
   <label>Ingangsdatum:</label>
   <input type="date" name = "debtor_mandate_date" placeholder="(YYYY-MM-DD)"><br>
 </div>
 <div class="field">
 <label>Soort lid:</label>
+<select name="Soort Lid:">
  <?php
 $query2 = "SELECT name, id
 	FROM member_type
