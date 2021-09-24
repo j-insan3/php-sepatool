@@ -29,13 +29,11 @@ $active = htmlspecialchars($_GET["page"]);
    </li>
    <li class=<?php if ( $active == 'invoeren' ) { ?> 'active has-sub' <?php } else { ?> 'has-sub' <?php } ?>><a href='#'><span>Toevoegen</span></a>
       <ul>
-         <li><a href='index.php?page=invoeren&invoeren=hond'><span>Honden</span></a>
+         <li><a href='index.php?page=invoeren&invoeren=creditor'><span>Crediteuren</span></a>
          </li>
-         <li><a href='index.php?page=invoeren&invoeren=lid'><span>Leden</span></a>
+         <li><a href='index.php?page=invoeren&invoeren=debtor'><span>Debiteuren</span></a>
          </li>
-		 <li><a href='index.php?page=invoeren&invoeren=instructeur'><span>Instructeurs</span></a>
-         </li>
-         <li><a href='index.php?page=invoeren&invoeren=cursus'><span>Cursussen</span></a>
+		 <li><a href='index.php?page=invoeren&invoeren=membertype'><span>Lidmaatschappen</span></a>
          </li>
       </ul>
    </li>
