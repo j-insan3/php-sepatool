@@ -1,0 +1,9 @@
+{
+    "name": "insan3/incassotool",
+    "description": "The insan3 incasso tool",
+    "license": "GPL-3.0+",
+    "require": {
+	"digitick/sepa-xml" : "1.1.*"
+    }
+}
+
