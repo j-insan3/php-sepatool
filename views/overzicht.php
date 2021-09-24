@@ -97,11 +97,11 @@ elseif ($view == 'creditors') {
 <br>
 <table id="mytable" class="sortable" border="0">
 <thead>
-<tr><th>Crediteur</th><th>IBAN</th><th>BIC</th><th>Incassant ID</th><th>Code</th><th class="sorttable_nosort">Verwijderen?</th></tr>
+<tr><th>Crediteur</th><th>IBAN</th><th>BIC</th><th>Incassant ID</th><th>Code</th><th>Type</th><th class="sorttable_nosort">Verwijderen?</th></tr>
 </thead>
 <tbody>
 <?php
- $query = "SELECT * 
+ $query = "SELECT *
 		FROM creditor";
  $results = mysqli_query($link, $query);
 while($row = mysqli_fetch_array($results))
@@ -118,6 +118,8 @@ while($row = mysqli_fetch_array($results))
   echo $row['creditor_id'];
   echo "</td><td>";
   echo $row['local_instrument_code'];
+  echo "</td><td>";
+  echo $row['seq_type'];
   echo "</td><td>";
     echo '<a href="index.php?page=verwijder&delete=creditor&id=' . htmlspecialchars($row['id']) . '">'
         . htmlspecialchars('Verwijder')

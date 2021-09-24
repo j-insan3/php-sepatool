@@ -69,136 +69,59 @@ echo '</select>' ;
 
  <input type="submit" value="Voeg toe">
  </form>
- <?php
-} elseif($invoeren == 'lid') {
-?>
-<link href="style.css" rel="stylesheet" type="text/css">
-<form class="user-form" action="index.php?page=create&create=lid" method="post">
-<div class="field">
-<label>Voornaam:</label>
-<input type="text" name="Naam" autofocus required /><br />
-</div>
-<div class="field">
-<label>Achternaam:</label>
-<input type="text" name="Achternaam" required /><br />
-</div>
-<div class="field">
-<label>Adres:</label>
-<input type="text" name = "Adres" required /><br>
-</div>
-<div class="field">
-<label>Postcode:</label>
-<input type="text" name = "PostCode" maxlength="6" required /><br>
-</div>
-<div class="field">
-<label>Woonplaats:</label>
- <input type="text" name = "Woonplaats" required /><br>
-</div>
-<div class="field">
-<label>Telefoonnummer:</label>
-<input type="number" name = "Telefoonnummer" maxlength="10" /><br>
-</div>
-<div class="field">
-<label>Email:</label>
-<input type="email" name = "Email" maxlength="50" /><br>
-</div>
-<input type="submit" value="Voeg toe">
-</form>
- <?php
-} elseif($invoeren == 'cursus') {
-?>
-<link href="style.css" rel="stylesheet" type="text/css">
-<form class="user-form" action="index.php?page=create&create=cursus" method="post">
-<div class="field">
-<label>Cursusnaam:</label>
-<input type="text" name="CursusNaam" autofocus required/><br />
-</div>
-<div class="field">
-<label>Naam Diploma:</label>
-<input type="text" name="DiplomaNaam" /><br />
-</div>
-<div class="field">
-<label>Onderdeel 1:</label>
-<input type="text" name = "Cdeel1" /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten1" maxlength="2" /><br>
-</div>
-<div class="field">
-<label>Onderdeel 2:</label>
- <input type="text" name = "Cdeel2"  /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten2" maxlength="2" /><br>
-</div>
-<div class="field">
-<label>Onderdeel 3:</label>
-<input type="text" name = "Cdeel3" /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten3" maxlength="2" /><br>
-</div>
-<div class="field">
-<label>Onderdeel 4:</label>
- <input type="text" name = "Cdeel4"  /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten4" maxlength="2" /><br>
-</div>
-<div class="field">
-<label>Onderdeel 5:</label>
-<input type="text" name = "Cdeel5" /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten5" maxlength="2" /><br>
-</div>
-<div class="field">
-<label>Onderdeel 6:</label>
- <input type="text" name = "Cdeel6"  /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten6" maxlength="2" /><br>
-</div>
-<div class="field">
-<label>Onderdeel 7:</label>
-<input type="text" name = "Cdeel7" /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten7" maxlength="2" /><br>
-</div>
-<div class="field">
-<label>Onderdeel 8:</label>
- <input type="text" name = "Cdeel8"  /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten8" maxlength="2" /><br>
-</div>
-<div class="field">
-<label>Onderdeel 9:</label>
-<input type="text" name = "Cdeel9" /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten9" maxlength="2" /><br>
-</div>
-<div class="field">
-<label>Onderdeel 10:</label>
- <input type="text" name = "Cdeel10"  /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten10" maxlength="2" /><br>
-</div>
-<div class="field">
-<label>Onderdeel 11:</label>
-<input type="text" name = "Cdeel11" /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten11" maxlength="2" /><br>
-</div>
-<input type="submit" value="Voeg toe">
-</form>
- <?php
- } elseif ($invoeren == 'instructeur') {
 
- // Maak formulier
-?>
-<link href="style.css" rel="stylesheet" type="text/css">
-<form class="user-form" action="index.php?page=create&create=instructeur" method="post">
-<div class="field">
-<label>Instructeur:</label> <input type="text" name="Instructeur" autofocus required/><br />
- </div>
-<input type="submit" value="Voeg toe" />
-</form>
 <?php
+} elseif($invoeren == 'creditor') {
+?>
+<link href="style.css" rel="stylesheet" type="text/css">
+<form class="user-form" action="index.php?page=create&create=creditor" method="post">
+<div class="field">
+<label>Crediteur:</label>
+<input type="text" name="creditor_name" autofocus required /><br />
+</div>
+<div class="field">
+<label>IBAN:</label>
+<input type="text" name="creditor_account_IBAN" required /><br />
+</div>
+<div class="field">
+<label>BIC:</label>
+<input type="text" name = "creditor_agent_BIC" required /><br>
+</div>
+<div class="field">
+<label>Incassant ID:</label>
+<input type="text" name = "creditor_id" maxlength="6" required /><br>
+</div>
+<div class="field">
+<label>Code:</label>
+ <input type="text" name = "local_instrument_code" required /><br>
+</div>
+<div class="field">
+<label>Type:</label>
+<input type="number" name = "seq_type" maxlength="10" /><br>
+</div>
+<input type="submit" value="Voeg toe">
+</form>
+ <?php
+} elseif($invoeren == 'membertype') {
+?>
+<link href="style.css" rel="stylesheet" type="text/css">
+<form class="user-form" action="index.php?page=create&create=membertype" method="post">
+<div class="field">
+<label>Soort:</label>
+<input type="text" name="name" autofocus required/><br />
+</div>
+<div class="field">
+<label>Bedrag in centen</label>
+<input type="text" name="amount" /><br />
+</div>
+<div class="field">
+<label>Omschrijving:</label>
+<input type="text" name = "remittance_information" /><br>
+</div>
+<input type="submit" value="Voeg toe">
+</form>
 
+ <?php
 } else {
 echo 'geen geldige parameter';
 }

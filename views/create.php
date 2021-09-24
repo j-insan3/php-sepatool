@@ -33,6 +33,8 @@ if ( $create == 'debtor'){
  echo 'Invoer succesvol';
  ?>
 <meta http-equiv="refresh" content="1; url=index.php?page=invoeren&invoeren=debtor" />
+
+
 <?php
 } elseif ( $create == 'creditor') {
 //Vul variabelen vanuit POST
