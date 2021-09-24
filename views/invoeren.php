@@ -35,7 +35,7 @@ if ($invoeren == 'debtor') {
 </div>
 <div class="field">
 <label>Soort lid:</label>
-<select name="Soort Lid:">
+<select name="member_type_id">
  <?php
 $query2 = "SELECT name, id
 	FROM member_type
@@ -51,32 +51,16 @@ echo '</select>' ;
 ?>
 </div>
 <div class="field">
-<label>Instructeur:</label>
-<select name="Instructeur">
+<label>Crediteur:</label>
+<select name="creditor_id">
 <?php
-$query3 = "SELECT *
-	FROM Instructeur";
+$query3 = "SELECT id, creditor_name
+	FROM creditor";
 $result3 = mysqli_query($link, $query3);
 while ($row3 = mysqli_fetch_array($result3))
 {
-	echo '<option value="' . htmlspecialchars($row3['InstructeurID']) . '">'
-        . htmlspecialchars($row3['Naam'])
-        . '</option>';
-}
-echo '</select>' ;
-?>
-</div>
-<div class="field">
-<label>Cursus:</label>
-<select name="Cursus">
-<?php
-$query4 = "SELECT *
-	FROM Cursus";
-$result4 = mysqli_query($link, $query4);
-while ($row4 = mysqli_fetch_array($result4))
-{
-	echo '<option value="' . htmlspecialchars($row4['CursusID']) . '">'
-        . htmlspecialchars($row4['CursusNaam'])
+	echo '<option value="' . htmlspecialchars($row3['id']) . '">'
+        . htmlspecialchars($row3['creditor_name'])
         . '</option>';
 }
 echo '</select>' ;
