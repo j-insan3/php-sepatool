@@ -95,6 +95,7 @@ echo '</select>' ;
 <label>Code:</label>
  <select name = "local_instrument_code" required value="CORE" /><br>
  <option value="CORE"></option>
+ </select>
 </div>
 <div class="field">
 <label>Type:</label>
@@ -103,6 +104,7 @@ echo '</select>' ;
 <option value="S_FIRST"></option>
 <option value="S_FINAL"></option>
 <option value="S_ONEOFF"></option>
+</select>
 </div>
 <input type="submit" value="Voeg toe">
 </form>
