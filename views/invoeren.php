@@ -42,7 +42,7 @@ $result2 = mysqli_query($link, $query2);
 while ($row2 = mysqli_fetch_array($result2))
 {
 	echo '<option value="' . htmlspecialchars($row2['id']) . '">'
-        . htmlspecialchars($row2['name'] ))
+        . htmlspecialchars($row2['name'])
         . '</option>';
 }
 echo '</select>' ;
