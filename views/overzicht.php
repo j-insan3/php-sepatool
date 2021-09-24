@@ -141,7 +141,7 @@ elseif ($view == 'membertype') {
 <br>
 <table id="membertypetable" class="sortable" border="0">
 <thead>
-<tr><th>Naam</th><th>Bedrag</th><th>Omschrijving</th><th>Recurring</th><th class="sorttable_nosort">Verwijderen?</th></tr>
+<tr><th>Naam</th><th>Bedrag</th><th>Omschrijving</th><th class="sorttable_nosort">Verwijderen?</th></tr>
 </thead>
 <?php
  $query = "SELECT *
@@ -159,8 +159,6 @@ if ($row['id'] == '0' ) {  // Verberg de Curus 'geen'
   echo $row['amount'];
   echo "</td><td>";
   echo $row['remittance_information'];
-  echo "</td><td>";
-  echo $row['seq_type'];
   echo "</td><td>";
   echo '<a href="index.php?page=verwijder&delete=membertype&id=' . htmlspecialchars($row['id']) . '">'
         . htmlspecialchars('Verwijder')
