@@ -6,133 +6,85 @@ include 'menu.php';
 //Bepaal pagina
 $create = htmlspecialchars($_GET["create"]);
 
-if ( $create == 'hond'){
+if ( $create == 'debtor'){
 
 //Vul variabelen vanuit POST
- $Naam=$_POST['Naam']; 
- $Ras=$_POST['Ras']; 
- $lidID=$_POST['lidID']; 
- $Datum=$_POST['Datum'];
- $Stamboomnaam=$_POST['Stamboomnaam'];
- $Instructeur=$_POST['Instructeur'];
- $Cursus=$_POST['Cursus'];
- $ChipNR=$_POST['ChipNR'];
+ $member=$_POST['member'];
+ $debtor_name=$_POST['debtor_name'];
+ $debtor_account_IBAN=$_POST['debtor_account_IBAN'];
+ $debtor_mandate=$_POST['debtor_mandate'];
+ $debtor_mandate_date=$_POST['debtor_mandate_date'];
+ $member_type_id=$_POST['member_type_id'];
+ $creditor_id=$_POST['creditor_id'];
 
  //Voer query uit
- if ($stmt = $link->prepare("INSERT INTO Honden (HondNaam, Ras, GebDatum, Stamboomnaam, InstructeurID, lidID, CursusID, ChipNR) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ")) {
- 
-    // Bind the variables to the parameter as strings. 
-    $stmt->bind_param("ssssiiis", $Naam, $Ras, $Datum, $Stamboomnaam, $Instructeur, $lidID, $Cursus, $ChipNR);
- 
+ if ($stmt = $link->prepare("INSERT INTO debtor (member, debtor_name, debtor_account_IBAN, debtor_mandate, debtor_mandate_date, member_type_id, creditor_id) VALUES (?, ?, ?, ?, ?, ?, ?) ")) {
+
+    // Bind the variables to the parameter as strings.
+    $stmt->bind_param("sssssii", $member, $debtor_name, $debtor_account_IBAN, $debtor_mandate, $debtor_mandate_date, $member_type_id, $creditor_id);
+
     // Execute the statement.
     $stmt->execute();
- 
+
     // Close the prepared statement.
     $stmt->close();
- 
+
 }
  echo 'Invoer succesvol';
- ?> 
-<meta http-equiv="refresh" content="2; url=index.php?page=invoeren&invoeren=hond" />
+ ?>
+<meta http-equiv="refresh" content="1; url=index.php?page=invoeren&invoeren=debtor" />
 <?php
-} elseif ( $create == 'lid') {
+} elseif ( $create == 'creditor') {
 //Vul variabelen vanuit POST
- $Naam=$_POST['Naam']; 
- $Achternaam=$_POST['Achternaam']; 
- $Adres=$_POST['Adres']; 
- $PostCode=$_POST['PostCode'];
- $Woonplaats=$_POST['Woonplaats'];
- $Telefoonnummer=$_POST['Telefoonnummer'];
- $Email=$_POST['Email'];
+ $creditor_name=$_POST['creditor_name'];
+ $creditor_account_IBAN=$_POST['creditor_account_IBAN'];
+ $creditor_agent_BIC=$_POST['creditor_agent_BIC'];
+ $creditor_id=$_POST['creditor_id'];
+ $local_instrument_code=$_POST['local_instrument_code'];
+ $seq_type=$_POST['seq_type'];
 
  //Voer query uit
- if ($stmt = $link->prepare("INSERT INTO Leden (Naam, Achternaam, Adres, PostCode, Woonplaats, Telefoonnummer, Email) VALUES (?, ?, ?, ?, ?, ?, ?) ")) {
- 
-    // Bind the variables to the parameter as strings. 
-    $stmt->bind_param("sssssss", $Naam, $Achternaam, $Adres, $PostCode, $Woonplaats, $Telefoonnummer, $Email);
- 
+ if ($stmt = $link->prepare("INSERT INTO creditor (creditor_name, creditor_account_IBAN, creditor_agent_BIC, creditor_id, local_instrument_code, seq_type) VALUES (?, ?, ?, ?, ?, ?) ")) {
+
+    // Bind the variables to the parameter as strings.
+    $stmt->bind_param("ssssss", $creditor_name, $creditor_account_IBAN, $creditor_agent_BIC, $creditor_id, $local_instrument_code, $seq_type);
+
     // Execute the statement.
     $stmt->execute();
- 
+
     // Close the prepared statement.
     $stmt->close();
- 
+
 }
  echo 'Invoer succesvol';
- ?> 
-<meta http-equiv="refresh" content="2; url=index.php?page=invoeren&invoeren=hond" />
+ ?>
+<meta http-equiv="refresh" content="1; url=index.php?page=invoeren&invoeren=creditor" />
 
 <?php
-} elseif ( $create == 'cursus') {
+} elseif ( $create == 'membertype') {
 //Vul variabelen vanuit POST
- $CursusNaam=$_POST['CursusNaam']; 
- $DiplomaNaam=$_POST['DiplomaNaam']; 
- $Cdeel1=$_POST['Cdeel1']; 
- $Punten1=$_POST['Punten1'];
- $Cdeel2=$_POST['Cdeel2'];
- $Punten2=$_POST['Punten2'];
- $Cdeel3=$_POST['Cdeel3']; 
- $Punten3=$_POST['Punten3'];
- $Cdeel4=$_POST['Cdeel4'];
- $Punten4=$_POST['Punten4'];
- $Cdeel5=$_POST['Cdeel5']; 
- $Punten5=$_POST['Punten5'];
- $Cdeel6=$_POST['Cdeel6'];
- $Punten6=$_POST['Punten6'];
- $Cdeel7=$_POST['Cdeel7']; 
- $Punten7=$_POST['Punten7'];
- $Cdeel8=$_POST['Cdeel8'];
- $Punten8=$_POST['Punten8'];
- $Cdeel9=$_POST['Cdeel9']; 
- $Punten9=$_POST['Punten9'];
- $Cdeel10=$_POST['Cdeel10'];
- $Punten10=$_POST['Punten10'];
- $Cdeel11=$_POST['Cdeel11'];
- $Punten11=$_POST['Punten11'];
+ $name=$_POST['name'];
+ $amount=$_POST['amount'];
+ $remittance_information=$_POST['remittance_information'];
 
- 
+
 //Voer query uit
- if ($stmt = $link->prepare("INSERT INTO Cursus (CursusNaam, DiplomaNaam, Cdeel1, Cdeel2, Cdeel3, Cdeel4, Cdeel5, Cdeel6, Cdeel7, Cdeel8, Cdeel9, Cdeel10, Cdeel11, Punten1, Punten2, Punten3, Punten4, Punten5, Punten6, Punten7, Punten8, Punten9, Punten10, Punten11) 
-							VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ")) {
- 
-    // Bind the variables to the parameter as strings. 
-    $stmt->bind_param("ssssssssssssssssssssssss", $CursusNaam, $DiplomaNaam, $Cdeel1, $Cdeel2, $Cdeel3, $Cdeel4, $Cdeel5, $Cdeel6, $Cdeel7, $Cdeel8, $Cdeel9, $Cdeel10, $Cdeel11, $Punten1, $Punten2, $Punten3, $Punten4, $Punten5, $Punten6, $Punten7, $Punten8, $Punten9, $Punten10, $Punten11);
- 
- 
-    // Execute the statement.
+ if ($stmt = $link->prepare("INSERT INTO member_type (name, amount, remittance_information)
+							VALUES (?, ?, ?) ")) {
+
+    // Bind the variables to the parameter as strings.
+    $stmt->bind_param("sis", $name, $amount, $remittance_information);
+
+     // Execute the statement.
     $stmt->execute();
- 
+
     // Close the prepared statement.
     $stmt->close();
- 
+
 }
  echo 'Invoer succesvol';
- ?> 
-<meta http-equiv="refresh" content="2; url=index.php?page=invoeren&invoeren=cursus" />
-<?php
-} elseif ( $create == 'instructeur') {
-//Vul variabelen vanuit POST
- $Instructeur=$_POST['Instructeur']; 
- 
-//Voer query uit
- if ($stmt = $link->prepare("INSERT INTO Instructeur (Naam) 
-							VALUES (?) ")) {
- 
-    // Bind the variables to the parameter as strings. 
-    $stmt->bind_param("s", $Instructeur);
- 
- 
-    // Execute the statement.
-    $stmt->execute();
- 
-    // Close the prepared statement.
-    $stmt->close();
- 
-}
- echo 'Invoer succesvol';
- ?> 
-<meta http-equiv="refresh" content="2; url=index.php?page=invoeren&invoeren=instructeur" />
+ ?>
+<meta http-equiv="refresh" content="2; url=index.php?page=invoeren&invoeren=membertype" />
 <?php
 }
 ?>
-
