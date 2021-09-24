@@ -94,16 +94,16 @@ echo '</select>' ;
 <div class="field">
 <label>Code:</label>
  <select name = "local_instrument_code" required value="CORE" /><br>
- <option value="CORE"></option>
+ <option value="CORE">CORE</option>
  </select>
 </div>
 <div class="field">
 <label>Type:</label>
 <select name = "seq_type" required value="S_RECURRING"/><br>
-<option value="S_RECURRING"></option>
-<option value="S_FIRST"></option>
-<option value="S_FINAL"></option>
-<option value="S_ONEOFF"></option>
+<option value="S_RECURRING">Recurring</option>
+<option value="S_FIRST">First</option>
+<option value="S_FINAL">Final</option>
+<option value="S_ONEOFF">Single</option>
 </select>
 </div>
 <input type="submit" value="Voeg toe">
