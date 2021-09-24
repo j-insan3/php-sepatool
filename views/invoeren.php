@@ -97,7 +97,7 @@ echo '</select>' ;
 </div>
 <div class="field">
 <label>Type:</label>
-<input type="number" name = "seq_type" maxlength="10" /><br>
+<input type="text" name = "seq_type" required /><br>
 </div>
 <input type="submit" value="Voeg toe">
 </form>
@@ -112,7 +112,7 @@ echo '</select>' ;
 </div>
 <div class="field">
 <label>Bedrag in centen</label>
-<input type="text" name="amount" /><br />
+<input type="number" name="amount" /><br />
 </div>
 <div class="field">
 <label>Omschrijving:</label>
