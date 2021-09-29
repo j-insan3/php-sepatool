@@ -39,48 +39,12 @@ $row = mysqli_fetch_array($result);
  </div>
 <div class="field">
 <label>Type:</label> <select name="seq_type">
-<option value="<?php echo $row['seq_type']; ?>"><?php echo $row['seq_type']; ?> (huidige)</option>
+<option value="<?php echo $row['seq_type']; ?>">(huidige)</option>
 <option value="S_RECURRING">Recurring</option>
 <option value="S_FIRST">First</option>
 <option value="S_FINAL">Final</option>
 <option value="S_ONEOFF">Single</option>
 echo '</select>' ;
-?>
-<br>
- </div>
-<div class="field">
-<label>Instructeur:</label> <select name="Instructeur">
-<option value="<?php echo $row['InstructeurID']; ?>"><?php echo $row['InsNaam']; ?> (huidige)</option>
-<?php
-$query3 = "SELECT *
-	FROM Instructeur
-	ORDER BY `Instructeur`.`Naam` ASC";
-$result3 = mysqli_query($link, $query3);
-while ($row3 = mysqli_fetch_array($result3))
-{
-	echo '<option value="' . htmlspecialchars($row3['InstructeurID']) . '">'
-        . htmlspecialchars($row3['Naam'])
-        . '</option>';
-}
-echo '</select>' ;
-?>
-<br>
- </div>
-<div class="field">
-<label>Cursus:</label> <select name="Cursus">
-<option value="<?php echo $row['CursusID']; ?>"><?php echo $row['CursusNaam']; ?> (huidige)</option>
-<?php
-$query4 = "SELECT *
-	FROM Cursus";
-$result4 = mysqli_query($link, $query4);
-while ($row4 = mysqli_fetch_array($result4))
-{
-	echo '<option value="' . htmlspecialchars($row4['CursusID']) . '">'
-        . htmlspecialchars($row4['CursusNaam'])
-        . '</option>';
-}
-echo '</select>' ;
-?>
 
  </div>
 <input type="submit" value="Wijzig" />
