@@ -35,7 +35,9 @@ $row = mysqli_fetch_array($result);
 <label>Incassant ID:</label> <input type="text" name = "creditor_id" value="<?php echo $row['creditor_id']; ?>" /><br>
  </div>
  <div class="field">
-<label>Code:</label> <input type="text" name = "local_instrument_code" value="<?php echo $row['local_instrument_code']; ?>" /><br>
+<label>Code:</label> <select name = "local_instrument_code">
+	<option value="<?php echo $row['local_instrument_code']; ?>"> <?php echo $row['local_instrument_code']; ?> </option>
+</select>
  </div>
 <div class="field">
 <label>Type:</label> <select name="seq_type">
