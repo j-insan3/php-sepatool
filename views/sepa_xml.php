@@ -27,7 +27,7 @@ $directDebit->addPaymentInfo('Incasso', array(
     'creditorName'          => $row['creditor_name'],
     'creditorAccountIBAN'   => $row['creditor_account_IBAN'],
     'creditorAgentBIC'      => $row['creditor_agent_BIC'],
-    'seqType'               => $seq_type_merge,
+    'seqType'               => $row['seq_type'],
     'creditorId'            => $row['creditor_id'],
     'localInstrumentCode'   => $row['local_instrument_code'] // default. optional.
     // Add/Set batch booking option, you can pass boolean value as per your requirement, optional
