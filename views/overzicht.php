@@ -56,9 +56,10 @@ if ($view == 'debtors') {
 <tbody>
 <?php
  $query = "SELECT debtor.*, member_type.name, creditor.creditor_name
+           FROM debtor
            INNER JOIN member_type ON debtor.member_type_id=member_type.id
            INNER JOIN creditor ON debtor.creditor_id=creditor.id
-		       FROM debtor"
+		       "
 		;
  $results = mysqli_query($link, $query);
 while($row = mysqli_fetch_array($results))
