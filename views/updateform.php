@@ -56,7 +56,7 @@ $row = mysqli_fetch_array($result);
 } elseif ($update == 'debtor') {
 $select_id = htmlspecialchars($_GET["id"]);
 //Vraag gegevens op
-$query = "SELECT debtor.*, creditor.id, creditor.creditor_name, creditor.creditor_id AS icassant_id, member_type.*
+$query = "SELECT debtor.*, creditor.id, creditor.creditor_name, creditor.creditor_id AS incassant_id, member_type.*
 	FROM debtor
 	INNER JOIN member_type ON debtor.member_type_id=member_type.id
 	INNER JOIN creditor ON debtor.creditor_id=creditor.id
