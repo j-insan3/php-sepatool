@@ -53,12 +53,14 @@ $row = mysqli_fetch_array($result);
 </form>
 
 <?php
-} elseif ($update == 'lid') {
+} elseif ($update == 'debtor') {
 $select_id = htmlspecialchars($_GET["id"]);
 //Vraag gegevens op
-$query = "SELECT *
-	FROM Leden
-	WHERE lidID='$select_id'";
+$query = "SELECT debtor.*, creditor.*, member_type.*
+	FROM debtor
+	INNER JOIN member_type ON debtor.member_type_id=member_type.id
+	INNER JOIN creditor ON debtor.creditor_id=creditor.id
+	WHERE id='$select_id'";
 
 $result = mysqli_query($link, $query);
 $row = mysqli_fetch_array($result);
@@ -66,25 +68,40 @@ $row = mysqli_fetch_array($result);
 // Maak formulier
 ?>
 <link href="style.css" rel="stylesheet" type="text/css">
-<form class="user-form" action="index.php?page=update&update=lid" method="post">
-<input type="hidden" name="lidID" value="<?php echo $select_id; ?>" /><br />
+<form class="user-form" action="index.php?page=update&update=debtor" method="post">
+<input type="hidden" name="id" value="<?php echo $select_id; ?>" /><br />
 <div class="field">
-<label>Voornaam:</label> <input type="text" name="Naam" value="<?php echo $row['Naam']; ?>" autofocus/><br />
+<label>Lid:</label> <input type="text" name="member" value="<?php echo $row['member']; ?>" autofocus/><br />
  </div>
 <div class="field">
-<label>Achternaam:</label> <input type="text" name="Achternaam" value="<?php echo $row['Achternaam']; ?>" /><br />
+<label>Debiteur Naam:</label> <input type="text" name="debtor_name" value="<?php echo $row['debtor_name']; ?>" /><br />
  </div>
 <div class="field">
-<label>Adres:</label> <input type="text" name = "Adres" value="<?php echo $row['Adres']; ?>" /><br>
+<label>IBAN:</label> <input type="text" name = "debtor_account_IBAN" value="<?php echo $row['debtor_account_IBAN']; ?>" /><br>
  </div>
 <div class="field">
-<label>Postcode:</label> <input type="text" name = "PostCode" maxlength="6" value="<?php echo $row['PostCode']; ?>" /><br>
+<label>Mandaat:</label> <input type="text" name = "debtor_mandate" maxlength="8" value="<?php echo $row['debtor_mandate']; ?>" /><br>
  </div>
 <div class="field">
-<label>Woonplaats:</label> <input type="text" name = "Woonplaats" value="<?php echo $row['Woonplaats']; ?>" /><br>
+<label>Ingangsdatum:</label> <input type="date" name = "debtor_mandate_date" value="<?php echo $row['debtor_mandate_date']; ?>" /><br>
  </div>
 <div class="field">
-<label>Telefoonnummer:</label> <input type="number" name = "Telefoonnummer" maxlength="10" value="<?php echo $row['Telefoonnummer']; ?>" /><br>
+<label>Soort lid:</label> <select name = "member_type_id">
+ <option value="<?php echo $row['member_type_id']; ?>"><?php echo $row['name']; ?> (huidige)</option>
+ <?php
+$query_member_types = "SELECT name, id
+	FROM member_type
+	ORDER BY `name`ASC";
+$result_member_types = mysqli_query($link, $query_member_types);
+while ($row_member_types = mysqli_fetch_array($result_member_types))
+{
+        echo '<option value="' . htmlspecialchars($row_member_types['id']) . '">'
+        . htmlspecialchars($row_member_types['name'] )
+        . '</option>';
+}
+echo '</select>' ;
+?>
+<br>
  </div>
  <div class="field">
 <label>Email:</label> <input type="email" name = "Email" maxlength="50" value="<?php echo $row['Email']; ?>" /><br>
