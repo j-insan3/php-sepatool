@@ -104,8 +104,23 @@ echo '</select>' ;
 <br>
  </div>
  <div class="field">
-<label>Email:</label> <input type="email" name = "Email" maxlength="50" value="<?php echo $row['Email']; ?>" /><br>
- </div>
+ <label>Crediteur:</label> <select name = "creditor_id">
+  <option value="<?php echo $row['creditor_id']; ?>"><?php echo $row['creditor_name']; ?> (huidige)</option>
+  <?php
+ $query_creditors = "SELECT name, id
+ 	FROM member_type
+ 	ORDER BY `name`ASC";
+ $result_creditors = mysqli_query($link, $query_creditors);
+ while ($row_creditors = mysqli_fetch_array($result_creditors))
+ {
+         echo '<option value="' . htmlspecialchars($row_creditors['id']) . '">'
+         . htmlspecialchars($row_creditors['creditor_name'] )
+         . '</option>';
+ }
+ echo '</select>' ;
+ ?>
+ <br>
+  </div>
 <input type="submit" value="Wijzig" />
 </form>
 <?php
