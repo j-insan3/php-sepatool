@@ -109,7 +109,7 @@ echo '</select>' ;
   <?php
  $query_creditors = "SELECT creditor_name, id
  	FROM creditor
- 	ORDER BY `name`ASC";
+ 	ORDER BY `creditor_name`ASC";
  $result_creditors = mysqli_query($link, $query_creditors);
  while ($row_creditors = mysqli_fetch_array($result_creditors))
  {
