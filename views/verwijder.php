@@ -6,139 +6,100 @@ include 'menu.php';
 //bepaal wat te verwijderen
 $delete = htmlspecialchars($_GET["delete"]);
 
-if ($delete == 'hond') {
+if ($delete == 'debtor') {
 
 //Welke hond
 $id = htmlspecialchars($_GET["id"]);
  //Voer query uit
- if ($stmt = $link->prepare("DELETE FROM `dog_db`.`Honden` WHERE `Honden`.`HondID` = ?")) {
- 
-    // Bind the variables to the parameter as strings. 
+ if ($stmt = $link->prepare("DELETE FROM `debtor` WHERE `debtor`.`id` = ?")) {
+
+    // Bind the variables to the parameter as strings.
     $stmt->bind_param("i", $id);
- 
+
     // Execute the statement.
     $stmt->execute();
- 
+
     // Close the prepared statement.
     $stmt->close();
- 
+
 }
- echo 'Hond Verwijderd';
+ echo 'Debiteur Verwijderd';
  ?>
- <meta http-equiv="refresh" content="1; url=index.php?page=overzicht&view=honden" />
+ <meta http-equiv="refresh" content="1; url=index.php?page=overzicht&view=debtors" />
 <?php
 }
-elseif ($delete == 'lid') {
+elseif ($delete == 'creditor') {
 
 //Wie
 $id = htmlspecialchars($_GET["id"]);
 
-//Check of dit lid nog geen hond in de database heef staan
+//Check of deze crediteur geen debiteuren in de database heef staan
 
-$query = "SELECT lidID 
-			FROM Honden 
-			WHERE lidID = '$id'";
+$query = "SELECT creditor_id
+			FROM debtor
+			WHERE creditor_id = '$id'";
 $results = mysqli_query($link, $query);
 
 if(mysqli_num_rows($results) == 0) {
 
 //Voer query uit
- if ($stmt = $link->prepare("DELETE FROM `dog_db`.`Leden` WHERE `Leden`.`lidID` = ?")) {
- 
-    // Bind the variables to the parameter as strings. 
+ if ($stmt = $link->prepare("DELETE FROM `creditor` WHERE `creditor`.`id` = ?")) {
+
+    // Bind the variables to the parameter as strings.
     $stmt->bind_param("i", $id);
- 
+
     // Execute the statement.
     $stmt->execute();
- 
+
     // Close the prepared statement.
     $stmt->close();
- 
+
 }
- echo 'Lid Verwijderd';
+ echo 'crediteur Verwijderd';
  ?>
- <meta http-equiv="refresh" content="1; url=index.php?page=overzicht&view=leden" />
+ <meta http-equiv="refresh" content="1; url=index.php?page=overzicht&view=creditors" />
  <?php
 } else {
-    // Lid heeft nog een hond
+    // Nog debiteuren aanwezig
 
-echo 'Lid heeft nog een hond! Verwijderen onmogelijk';
+echo 'Nog debiteuren aanwezig';
 
 }
 }
-elseif ($delete == 'cursus') {
+elseif ($delete == 'membertype') {
 
 //Wie
 $id = htmlspecialchars($_GET["id"]);
 
-//Check of dit lid nog geen hond in de database heef staan
+//Check of er geen leden dit type lidmaatschap hebben
 
-$query = "SELECT CursusID 
-			FROM Honden 
-			WHERE lidID = '$id'";
+$query = "SELECT member_type_id
+			FROM debtor
+			WHERE member_type_id = '$id'";
 $results = mysqli_query($link, $query);
 
 if(mysqli_num_rows($results) == 0) {
 
 //Voer query uit
- if ($stmt = $link->prepare("DELETE FROM `dog_db`.`Cursus` WHERE `Cursus`.`CursusID` = ?")) {
- 
-    // Bind the variables to the parameter as strings. 
+ if ($stmt = $link->prepare("DELETE FROM `member_type` WHERE `member_type`.`id` = ?")) {
+
+    // Bind the variables to the parameter as strings.
     $stmt->bind_param("i", $id);
- 
+
     // Execute the statement.
     $stmt->execute();
- 
+
     // Close the prepared statement.
     $stmt->close();
- 
+
 }
- echo 'Cursus Verwijderd';
+ echo 'Lidmaatschap Verwijderd';
  ?>
- <meta http-equiv="refresh" content="1; url=index.php?page=overzicht&view=cursus" />
+ <meta http-equiv="refresh" content="1; url=index.php?page=overzicht&view=membertype" />
  <?php
 } else {
-    // Cursus heeft nog een hond op zijn naam
 
-echo 'Deze cursus heeft nog een hond ingeschreven staan! Verwijderen onmogelijk';
-
-}
-}
-elseif ($delete == 'instructeur') {
-
-//Wie
-$id = htmlspecialchars($_GET["id"]);
-
-//Check of dit lid nog geen hond in de database heef staan
-
-$query = "SELECT InstructeurID 
-			FROM Honden 
-			WHERE InstructeurID = '$id'";
-$results = mysqli_query($link, $query);
-
-if(mysqli_num_rows($results) == 0) {
-
-//Voer query uit
- if ($stmt = $link->prepare("DELETE FROM `dog_db`.`Instructeur` WHERE `Instructeur`.`InstructeurID` = ?")) {
- 
-    // Bind the variables to the parameter as strings. 
-    $stmt->bind_param("i", $id);
- 
-    // Execute the statement.
-    $stmt->execute();
- 
-    // Close the prepared statement.
-    $stmt->close();
- 
-}
- echo 'Instructeur Verwijderd';
- ?>
- <meta http-equiv="refresh" content="1; url=index.php?page=overzicht&view=instructeur" />
- <?php
-} else {
-    // Instructeur heeft nog een hond op zijn naam
-
-echo 'Deze instructeur heeft nog een hond op zijn naam staan! Verwijderen onmogelijk';
+echo 'Nog leden met dit type lidmaatschap';
 
 }
 }
@@ -149,8 +110,8 @@ $id = htmlspecialchars($_GET["id"]);
 
 //Check of dit lid nog geen hond in de database heef staan
 
-$query = "SELECT * 
-			FROM users 
+$query = "SELECT *
+			FROM users
 			WHERE user_id = '$id'";
 $results = mysqli_query($link, $query);
 $row = mysqli_fetch_array($results);
@@ -167,16 +128,16 @@ echo ', je kunt niet jezelf verwijderen! ';
 } else {
 //Voer query uit
  if ($stmt = $link->prepare("DELETE FROM `dog_db`.`users` WHERE `users`.`user_id` = ?")) {
- 
-    // Bind the variables to the parameter as strings. 
+
+    // Bind the variables to the parameter as strings.
    $stmt->bind_param("i", $id);
- 
+
     // Execute the statement.
     $stmt->execute();
  
     // Close the prepared statement.
     $stmt->close();
- 
+
 
  echo 'Gebruiker Verwijderd';
  }
@@ -187,4 +148,3 @@ echo ', je kunt niet jezelf verwijderen! ';
 }
 
 ?>
-
