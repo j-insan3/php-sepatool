@@ -35,7 +35,7 @@ $directDebit->addPaymentInfo('Incasso', array(
 ));
 
 
-$query_transactions = "SELECT debtor.*, creditor.*, member_type.*
+$query_transactions = "SELECT debtor.*, member_type.amount, member_type.remittance_information
                 FROM debtor
                 INNER JOIN creditor ON debtor.creditor_id=creditor.id
                 INNER JOIN member_type ON debtor.member_type_id=member_type.id
@@ -54,7 +54,7 @@ $directDebit->addTransfer('Incasso', array(
     'debtorMandate'         => $row_tr['debtor_mandate'],
     'debtorMandateSignDate' => $row_tr['debtor_mandate_date'],
     'remittanceInformation' => $row_tr['remittance_information'] . " " . $row_tr['member'],
-    'endToEndId'            => $UniqueMsgId . "-" . $row_tr['debtor.id'] // optional, if you want to provide additional structured info
+    'endToEndId'            => $UniqueMsgId . "-" . $row_tr['id'] // optional, if you want to provide additional structured info
 ));
 }
 // Retrieve the resulting XML
