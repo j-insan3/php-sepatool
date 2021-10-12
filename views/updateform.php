@@ -42,10 +42,10 @@ $row = mysqli_fetch_array($result);
 <div class="field">
 <label>Type:</label> <select name="seq_type">
 <option value="<?php echo $row['seq_type']; ?>"><?php echo $row['seq_type']; ?> (huidige)</option>
-<option value="S_RECURRING">Recurring</option>
-<option value="S_FIRST">First</option>
-<option value="S_FINAL">Final</option>
-<option value="S_ONEOFF">Single</option>
+<option value="FRST">Recurring</option>
+<option value="RCUR">First</option>
+<option value="FNAL">Final</option>
+<option value="OOFF">Single</option>
 </select>
 
  </div>
