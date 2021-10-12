@@ -52,8 +52,8 @@ $directDebit->addTransfer('Incasso', array(
     'debtorName'            => $row_tr['debtor_name'],
     'debtorMandate'         => $row_tr['debtor_mandate'],
     'debtorMandateSignDate' => $row_tr['debtor_mandate_date'],
-    'remittanceInformation' => $row_tr['remittance_information'] . " " . $row_tr['member'],
-    'endToEndId'            => 'Invoice-No ' // optional, if you want to provide additional structured info
+    'remittanceInformation' => $row_tr['remittance_information'] . " " . $row_tr['member']
+//    'endToEndId'            => 'Invoice-No ' // optional, if you want to provide additional structured info
 ));
 }
 // Retrieve the resulting XML
