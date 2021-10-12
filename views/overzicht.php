@@ -78,9 +78,9 @@ while($row = mysqli_fetch_array($results))
   echo "</td><td>";
   echo $row['debtor_mandate_date'];
   echo "</td><td>";
-  echo $row['member_type.name'];
+  echo $row['name'];
   echo "</td><td>";
-  echo $row['creditor.creditor_name'];
+  echo $row['creditor_name'];
   echo "</td><td>";
   echo '<a href="index.php?page=verwijder&delete=debtor&id=' . htmlspecialchars($row['id']) . '">'
         . htmlspecialchars('Verwijder')
