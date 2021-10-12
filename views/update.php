@@ -62,7 +62,7 @@ if ( $update == 'creditor'){
 }
  echo 'Update succesvol';
 ?>
-<meta http-equiv="refresh" content="2; url=index.php?page=overzicht&view=membertype" />
+<meta http-equiv="refresh" content="2; url=index.php?page=overzicht&view=debtors" />
 
 <?php
 } elseif ( $update == 'membertype'){
