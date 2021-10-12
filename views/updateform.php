@@ -56,7 +56,7 @@ $row = mysqli_fetch_array($result);
 } elseif ($update == 'debtor') {
 $select_id = htmlspecialchars($_GET["id"]);
 //Vraag gegevens op
-$query = "SELECT debtor.*, creditor.*, member_type.*
+$query = "SELECT debtor.*, creditor.id, creditor.creditor_name, creditor.creditor_id AS icassant_id, member_type.*
 	FROM debtor
 	INNER JOIN member_type ON debtor.member_type_id=member_type.id
 	INNER JOIN creditor ON debtor.creditor_id=creditor.id
@@ -105,7 +105,7 @@ echo '</select>' ;
  </div>
  <div class="field">
  <label>Crediteur:</label> <select name = "creditor_id">
-  <option value="<?php echo $row['debtor.creditor_id']; ?>"><?php echo $row['creditor_name']; ?> (huidige)</option>
+  <option value="<?php echo $row['incassant_id']; ?>"><?php echo $row['creditor_name']; ?> (huidige)</option>
   <?php
  $query_creditors = "SELECT creditor_name, id
  	FROM creditor
