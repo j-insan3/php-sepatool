@@ -51,12 +51,14 @@ if ($view == 'debtors') {
 <br>
 <table id="debtorTable" class="sortable" border="0">
 <thead>
-<tr><th>Lid</th><th>Debiteurnaam</th><th>IBAN</th><th>Mandate ID</th><th>Mandate datum</th><th class="sorttable_nosort">Verwijderen?</th></tr>
+<tr><th>Lid</th><th>Debiteurnaam</th><th>IBAN</th><th>Mandate ID</th><th>Mandate datum</th><th>Lidmaatschap</th><th>Crediteur</th><th class="sorttable_nosort">Verwijderen?</th></tr>
 </thead>
 <tbody>
 <?php
- $query = "SELECT *
-		FROM debtor"
+ $query = "SELECT debtor.*, member_type.name, creditor.creditor_name
+           INNER JOIN member_type ON debtor.member_type_id=member_type.id
+           INNER JOIN creditor ON debtor.creditor_id=creditor.id
+		       FROM debtor"
 		;
  $results = mysqli_query($link, $query);
 while($row = mysqli_fetch_array($results))
@@ -75,6 +77,10 @@ while($row = mysqli_fetch_array($results))
   echo $row['debtor_mandate'];
   echo "</td><td>";
   echo $row['debtor_mandate_date'];
+  echo "</td><td>";
+  echo $row['member_type.name'];
+  echo "</td><td>";
+  echo $row['creditor.creditor_name'];
   echo "</td><td>";
   echo '<a href="index.php?page=verwijder&delete=debtor&id=' . htmlspecialchars($row['id']) . '">'
         . htmlspecialchars('Verwijder')
