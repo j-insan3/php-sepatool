@@ -124,13 +124,13 @@ echo '</select>' ;
 <input type="submit" value="Wijzig" />
 </form>
 <?php
-} elseif ($update == 'cursus') {
+} elseif ($update == 'membertype') {
 
 $select_id = htmlspecialchars($_GET["id"]);
 //Vraag gegevens op
 $query = "SELECT *
-	FROM Cursus
-	WHERE CursusID='$select_id'";
+	FROM member_type
+	WHERE id='$select_id'";
 
 $result = mysqli_query($link, $query);
 $row = mysqli_fetch_array($result);
@@ -138,81 +138,19 @@ $row = mysqli_fetch_array($result);
 // Maak formulier
 ?>
 <link href="style.css" rel="stylesheet" type="text/css">
-<form class="user-form" action="index.php?page=update&update=cursus" method="post">
-<input type="hidden" name="CursusID" value="<?php echo $select_id; ?>" /><br />
+<form class="user-form" action="index.php?page=update&update=membertype" method="post">
+<input type="hidden" name="id" value="<?php echo $select_id; ?>" /><br />
 <div class="field">
-<label>Cursusnaam:</label>
-<input type="text" name="CursusNaam" value="<?php echo $row['CursusNaam']; ?>" autofocus required/><br />
+<label>Soort:</label>
+<input type="text" name="name" value="<?php echo $row['name']; ?>" autofocus required/><br />
 </div>
 <div class="field">
-<label>Naam Diploma:</label>
-<input type="text" name="DiplomaNaam" value="<?php echo $row['DiplomaNaam']; ?>" /><br />
+<label>Amount:</label>
+<input type="number" name = "amount" maxlength="4" value="<?php echo $row['amount']; ?>"/><br>
 </div>
 <div class="field">
-<label>Onderdeel 1:</label>
-<input type="text" name = "Cdeel1" value="<?php echo $row['Cdeel1']; ?>" /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten1" maxlength="2" value="<?php echo $row['Punten1']; ?>"/><br>
-</div>
-<div class="field">
-<label>Onderdeel 2:</label>
- <input type="text" name = "Cdeel2" value="<?php echo $row['Cdeel2']; ?>" /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten2" maxlength="2" value="<?php echo $row['Punten2']; ?>"/><br>
-</div>
-<div class="field">
-<label>Onderdeel 3:</label>
-<input type="text" name = "Cdeel3" value="<?php echo $row['Cdeel3']; ?>"/><br>
-<label>Punten:</label>
-<input type="number" name = "Punten3" maxlength="2" value="<?php echo $row['Punten3']; ?>"/><br>
-</div>
-<div class="field">
-<label>Onderdeel 4:</label>
- <input type="text" name = "Cdeel4" value="<?php echo $row['Cdeel4']; ?>" /><br>
-<label>Punten:</label>
-<input type="number" name = "Punten4" maxlength="2" value="<?php echo $row['Punten4']; ?>"/><br>
-</div>
-<div class="field">
-<label>Onderdeel 5:</label>
-<input type="text" name = "Cdeel5" value="<?php echo $row['Cdeel5']; ?>"/><br>
-<label>Punten:</label>
-<input type="number" name = "Punten5" maxlength="2" value="<?php echo $row['Punten5']; ?>"/><br>
-</div>
-<div class="field">
-<label>Onderdeel 6:</label>
- <input type="text" name = "Cdeel6"  value="<?php echo $row['Cdeel6']; ?>"/><br>
-<label>Punten:</label>
-<input type="number" name = "Punten6" maxlength="2" value="<?php echo $row['Punten6']; ?>"/><br>
-</div>
-<div class="field">
-<label>Onderdeel 7:</label>
-<input type="text" name = "Cdeel7" value="<?php echo $row['Cdeel7']; ?>"/><br>
-<label>Punten:</label>
-<input type="number" name = "Punten7" maxlength="2" value="<?php echo $row['Punten7']; ?>"/><br>
-</div>
-<div class="field">
-<label>Onderdeel 8:</label>
- <input type="text" name = "Cdeel8"  value="<?php echo $row['Cdeel8']; ?>"/><br>
-<label>Punten:</label>
-<input type="number" name = "Punten8" maxlength="2" value="<?php echo $row['Punten8']; ?>"/><br>
-</div>
-<div class="field">
-<label>Onderdeel 9:</label>
-<input type="text" name = "Cdeel9" value="<?php echo $row['Cdeel9']; ?>"/><br>
-<label>Punten:</label>
-<input type="number" name = "Punten9" maxlength="2" value="<?php echo $row['Punten9']; ?>"/><br>
-</div>
-<div class="field">
-<label>Onderdeel 10:</label>
- <input type="text" name = "Cdeel10"  value="<?php echo $row['Cdeel10']; ?>"/><br>
-<label>Punten:</label>
-<input type="number" name = "Punten10" maxlength="2" value="<?php echo $row['Punten10']; ?>"/><br>
-</div>
-<div class="field">
-<label>Onderdeel 11:</label>
-<input type="text" name = "Cdeel11" value="<?php echo $row['Cdeel11']; ?>"/><br>
-<label>Punten:</label>
-<input type="number" name = "Punten11" maxlength="2" value="<?php echo $row['Punten11']; ?>"/><br>
+<label>Omschrijving:</label>
+ <input type="text" name = "remittance_information" value="<?php echo $row['remittance_information']; ?>" /><br>
 </div>
 <input type="submit" value="Update">
 </form>
