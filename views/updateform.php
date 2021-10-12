@@ -107,8 +107,8 @@ echo '</select>' ;
  <label>Crediteur:</label> <select name = "creditor_id">
   <option value="<?php echo $row['creditor_id']; ?>"><?php echo $row['creditor_name']; ?> (huidige)</option>
   <?php
- $query_creditors = "SELECT name, id
- 	FROM member_type
+ $query_creditors = "SELECT creditor_name, id
+ 	FROM creditor
  	ORDER BY `name`ASC";
  $result_creditors = mysqli_query($link, $query_creditors);
  while ($row_creditors = mysqli_fetch_array($result_creditors))
