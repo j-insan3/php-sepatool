@@ -99,7 +99,7 @@ echo '</select>' ;
 </div>
 <div class="field">
 <label>Type:</label>
-<select name = "seq_type" required value="S_RECURRING"/><br>
+<select name = "seq_type" required value="RCUR"/><br>
 <option value="RCUR">Recurring</option>
 <option value="FRST">First</option>
 <option value="FNAL">Final</option>
