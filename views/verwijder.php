@@ -11,7 +11,7 @@ if ($delete == 'debtor') {
 //Welke hond
 $id = htmlspecialchars($_GET["id"]);
  //Voer query uit
- if ($stmt = $link->prepare("DELETE FROM `debtor` WHERE `debtor`.`id` = ?")) {
+ if ($stmt = $link->prepare("DELETE FROM debtor WHERE id = ?")) {
 
     // Bind the variables to the parameter as strings.
     $stmt->bind_param("i", $id);
@@ -134,7 +134,7 @@ echo ', je kunt niet jezelf verwijderen! ';
 
     // Execute the statement.
     $stmt->execute();
- 
+
     // Close the prepared statement.
     $stmt->close();
 
