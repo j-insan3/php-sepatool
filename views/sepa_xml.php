@@ -13,10 +13,11 @@ $query = "SELECT *
 $result = mysqli_query($link, $query);
 $row = mysqli_fetch_array($result);
 $seq_type_merge = "PaymentInformation::" . $row['seq_type'];
+$UniqueMsgId = "DD-".date("YmdHis");
 
 //Set the initial information
 // third parameter 'pain.008.003.02' is optional would default to 'pain.008.002.02' if not changed
-$directDebit = TransferFileFacadeFactory::createDirectDebit('SampleUniqueMsgId', 'SampleInitiatingPartyName', 'pain.008.003.02');
+$directDebit = TransferFileFacadeFactory::createDirectDebit($UniqueMsgId, $row['creditor_name'], 'pain.008.001.02');
 
 // create a payment, it's possible to create multiple payments,
 // This creates a one time debit. If needed change use ::S_FIRST, ::S_RECURRING or ::S_FINAL respectively
@@ -52,8 +53,8 @@ $directDebit->addTransfer('Incasso', array(
     'debtorName'            => $row_tr['debtor_name'],
     'debtorMandate'         => $row_tr['debtor_mandate'],
     'debtorMandateSignDate' => $row_tr['debtor_mandate_date'],
-    'remittanceInformation' => $row_tr['remittance_information'] . " " . $row_tr['member']
-//    'endToEndId'            => 'Invoice-No ' // optional, if you want to provide additional structured info
+    'remittanceInformation' => $row_tr['remittance_information'] . " " . $row_tr['member'],
+    'endToEndId'            => 'Invoice-No ' // optional, if you want to provide additional structured info
 ));
 }
 // Retrieve the resulting XML
