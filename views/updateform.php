@@ -157,28 +157,6 @@ $row = mysqli_fetch_array($result);
 
 <?php
 
-}elseif ($update == 'instructeur') {
-
-$select_id = htmlspecialchars($_GET["id"]);
-//Vraag gegevens op
-$query = "SELECT *
-	FROM Instructeur
-	WHERE InstructeurID='$select_id'";
-
-$result = mysqli_query($link, $query);
-$row = mysqli_fetch_array($result);
-
-// Maak formulier
-?>
-<link href="style.css" rel="stylesheet" type="text/css">
-<form class="user-form" action="index.php?page=update&update=instructeur" method="post">
-<input type="hidden" name="InstructeurID" value="<?php echo $select_id; ?>" /><br />
-<div class="field">
-<label>Instructeur:</label> <input type="text" name="Instructeur" value="<?php echo $row['Naam']; ?>" autofocus/><br />
- </div>
-<input type="submit" value="Wijzig" />
-</form>
-<?php
 }elseif ($update == 'user') {
 
 $select_id = htmlspecialchars($_SESSION["user_name"]);
