@@ -87,7 +87,7 @@ $row = mysqli_fetch_array($result);
  </div>
 <div class="field">
 <label>Soort lid:</label> <select name = "member_type_id">
- <option value="<?php echo $row['member_type_id']; ?>"><?php echo $row['member_type.name']; ?> (huidige)</option>
+ <option value="<?php echo $row['member_type_id']; ?>"><?php echo $row['name']; ?> (huidige)</option>
  <?php
 $query_member_types = "SELECT name, id
 	FROM member_type
