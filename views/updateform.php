@@ -60,7 +60,7 @@ $query = "SELECT debtor.*, creditor.*, member_type.*
 	FROM debtor
 	INNER JOIN member_type ON debtor.member_type_id=member_type.id
 	INNER JOIN creditor ON debtor.creditor_id=creditor.id
-	WHERE id='$select_id'";
+	WHERE debtor.id='$select_id'";
 
 $result = mysqli_query($link, $query);
 $row = mysqli_fetch_array($result);
