@@ -105,7 +105,7 @@ echo '</select>' ;
  </div>
  <div class="field">
  <label>Crediteur:</label> <select name = "creditor_id">
-  <option value="<?php echo $row['creditor_id']; ?>"><?php echo $row['creditor_name']; ?> (huidige)</option>
+  <option value="<?php echo $row['debtor.creditor_id']; ?>"><?php echo $row['creditor_name']; ?> (huidige)</option>
   <?php
  $query_creditors = "SELECT creditor_name, id
  	FROM creditor
