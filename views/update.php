@@ -87,7 +87,7 @@ if ( $update == 'creditor'){
 }
  echo 'Invoer succesvol';
  ?>
-<meta http-equiv="refresh" content="2; url=index.php?page=overzicht&view=member_types" />
+<meta http-equiv="refresh" content="2; url=index.php?page=overzicht&view=membertype" />
 
 <?php
 } elseif ( $update == 'user'){
