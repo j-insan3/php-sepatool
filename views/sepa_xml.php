@@ -7,7 +7,7 @@ use Digitick\Sepa\PaymentInformation;
 $select_id = htmlspecialchars($_GET["id"]);
 //$select_id = 1;
 
-$query = "SELECT *  
+$query = "SELECT *
                 FROM creditor
 		WHERE id='$select_id'";
 $result = mysqli_query($link, $query);
@@ -30,11 +30,11 @@ $directDebit->addPaymentInfo('Incasso', array(
     'creditorId'            => $row['creditor_id'],
     'localInstrumentCode'   => $row['local_instrument_code'] // default. optional.
     // Add/Set batch booking option, you can pass boolean value as per your requirement, optional
-    //'batchBooking'          => true, 
+    //'batchBooking'          => true,
 ));
 
 
-$query_transactions = "SELECT debtor.*, creditor.*, member_type.*  
+$query_transactions = "SELECT debtor.*, creditor.*, member_type.*
                 FROM debtor
                 INNER JOIN creditor ON debtor.creditor_id=creditor.id
                 INNER JOIN member_type ON debtor.member_type_id=member_type.id
@@ -58,6 +58,5 @@ $directDebit->addTransfer('Incasso', array(
 }
 // Retrieve the resulting XML
 header('Content-type: text/xml');
-header('Content-Disposition: attachment; filename="text.xml"');
+header('Content-Disposition: attachment; filename="sepa.xml"');
 echo $directDebit->asXML();
-
