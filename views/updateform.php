@@ -141,7 +141,7 @@ $row = mysqli_fetch_array($result);
 <form class="user-form" action="index.php?page=update&update=membertype" method="post">
 <input type="hidden" name="id" value="<?php echo $select_id; ?>" /><br />
 <div class="field">
-<label>Soort:</label>
+<label>Bedrag in centen:</label>
 <input type="text" name="name" value="<?php echo $row['name']; ?>" autofocus required/><br />
 </div>
 <div class="field">
