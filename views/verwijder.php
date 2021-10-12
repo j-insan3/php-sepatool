@@ -43,7 +43,7 @@ $results = mysqli_query($link, $query);
 if(mysqli_num_rows($results) == 0) {
 
 //Voer query uit
- if ($stmt = $link->prepare("DELETE FROM `creditor` WHERE `creditor`.`id` = ?")) {
+ if ($stmt = $link->prepare("DELETE FROM creditor WHERE id = ?")) {
 
     // Bind the variables to the parameter as strings.
     $stmt->bind_param("i", $id);
@@ -81,7 +81,7 @@ $results = mysqli_query($link, $query);
 if(mysqli_num_rows($results) == 0) {
 
 //Voer query uit
- if ($stmt = $link->prepare("DELETE FROM `member_type` WHERE `member_type`.`id` = ?")) {
+ if ($stmt = $link->prepare("DELETE FROM member_type WHERE id = ?")) {
 
     // Bind the variables to the parameter as strings.
     $stmt->bind_param("i", $id);
@@ -127,7 +127,7 @@ echo ', je kunt niet jezelf verwijderen! ';
 
 } else {
 //Voer query uit
- if ($stmt = $link->prepare("DELETE FROM `dog_db`.`users` WHERE `users`.`user_id` = ?")) {
+ if ($stmt = $link->prepare("DELETE FROM users WHERE user_id = ?")) {
 
     // Bind the variables to the parameter as strings.
    $stmt->bind_param("i", $id);
