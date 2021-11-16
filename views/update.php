@@ -67,6 +67,7 @@ if ( $update == 'creditor'){
 <?php
 } elseif ( $update == 'membertype'){
 //Vul variabelen vanuit POST
+ $id=$_POST['id'];
  $name=$_POST['name'];
  $amount=$_POST['amount'];
  $remittance_information=$_POST['remittance_information'];
