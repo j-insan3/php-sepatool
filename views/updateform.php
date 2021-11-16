@@ -141,11 +141,11 @@ $row = mysqli_fetch_array($result);
 <form class="user-form" action="index.php?page=update&update=membertype" method="post">
 <input type="hidden" name="id" value="<?php echo $select_id; ?>" /><br />
 <div class="field">
-<label>Bedrag in centen:</label>
+<label>Soort:</label>
 <input type="text" name="name" value="<?php echo $row['name']; ?>" autofocus required/><br />
 </div>
 <div class="field">
-<label>Amount:</label>
+<label>Bedrag in centen:</label>
 <input type="number" name = "amount" maxlength="4" value="<?php echo $row['amount']; ?>"/><br>
 </div>
 <div class="field">
