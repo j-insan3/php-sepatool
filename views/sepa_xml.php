@@ -39,7 +39,7 @@ $query_transactions = "SELECT debtor.*, member_type.amount, member_type.remittan
                 FROM debtor
                 INNER JOIN creditor ON debtor.creditor_id=creditor.id
                 INNER JOIN member_type ON debtor.member_type_id=member_type.id
-		WHERE creditor.id='$select_id'";
+		WHERE creditor.id='$select_id' AND debtor.Active=0";
 
 $result_tr = mysqli_query($link, $query_transactions);
 

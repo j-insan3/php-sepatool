@@ -21,8 +21,10 @@ $active = htmlspecialchars($_GET["page"]);
       <ul>
          <li><a href='index.php?page=overzicht&view=creditors'><span>Crediteuren</span></a>
          </li>
-         <li><a href='index.php?page=overzicht&view=debtors'><span>Debiteuren</span></a>
+         <li><a href='index.php?page=overzicht&view=debtors'><span>Leden</span></a>
          </li>
+	 <li><a href='index.php?page=overzicht&view=exmembers'><span>Ex-leden</span></a>
+	 </li>
 	 <li><a href='index.php?page=overzicht&view=membertype'><span>Lidmaatschappen</span></a>
          </li>
       </ul>

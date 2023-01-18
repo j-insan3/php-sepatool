@@ -16,12 +16,21 @@ if ( $create == 'debtor'){
  $debtor_mandate_date=$_POST['debtor_mandate_date'];
  $member_type_id=$_POST['member_type_id'];
  $creditor_id=$_POST['creditor_id'];
+ $member_lastname=$_POST['member_lastname'];
+ $Adres=$_POST['Adres'];
+ $PC=$_POST['PC'];
+ $City=$_POST['City'];
+ $Phone=$_POST['Phone'];
+ $Email=$_POST['Email'];
+ $BirthDate=$_POST['BirthDate'];
+ $NBB=$_POST['NBB'];
+ $Comment=$_POST['Comment'];
 
  //Voer query uit
- if ($stmt = $link->prepare("INSERT INTO debtor (member, debtor_name, debtor_account_IBAN, debtor_mandate, debtor_mandate_date, member_type_id, creditor_id) VALUES (?, ?, ?, ?, ?, ?, ?) ")) {
+ if ($stmt = $link->prepare("INSERT INTO debtor (member, member_lastname, Adres, PC, City, Phone, Email, BirthDate, NBB, Comment, debtor_name, debtor_account_IBAN, debtor_mandate, debtor_mandate_date, member_type_id, creditor_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ")) {
 
     // Bind the variables to the parameter as strings.
-    $stmt->bind_param("sssssii", $member, $debtor_name, $debtor_account_IBAN, $debtor_mandate, $debtor_mandate_date, $member_type_id, $creditor_id);
+    $stmt->bind_param("sssssississsssii", $member, $member_lastname, $Adres, $PC, $City, $Phone, $Email, $BirthDate, $NBB, $Comment, $debtor_name, $debtor_account_IBAN, $debtor_mandate, $debtor_mandate_date, $member_type_id, $creditor_id);
 
     // Execute the statement.
     $stmt->execute();

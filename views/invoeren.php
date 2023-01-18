@@ -84,6 +84,38 @@ if ($invoeren == 'debtor') {
   <input type="text" name="member" autofocus required ><br>
 </div>
 <div class="field">
+  <label>Achternaam:</label>
+  <input type="text" name = "member_lastname" required><br>
+</div>
+<div class="field">
+  <label>Adres:</label>
+  <input type="text" name = "Adres" required><br>
+</div>
+<div class="field">
+  <label>PC:</label>
+  <input type="text" name = "PC" required><br>
+</div>
+<div class="field">
+  <label>City:</label>
+  <input type="text" name = "City" required><br>
+</div>
+<div class="field">
+  <label>Phone:</label>
+  <input type="number" name = "Phone" required><br>
+</div>
+<div class="field">
+  <label>Email:</label>
+  <input type="email" name = "Email" required><br>
+</div>
+<div class="field">
+  <label>BirthDate:</label>
+  <input type="date" name = "BirthDate" placeholder="(YYYY-MM-DD)" required><br>
+</div>
+<div class="field">
+  <label>NBB:</label>
+  <input type="number" name = "NBB" required><br>
+</div>
+<div class="field">
   <label>Debiteur Naam:</label>
   <input type="text" name = "debtor_name" required><br>
 </div>
@@ -133,6 +165,11 @@ while ($row3 = mysqli_fetch_array($result3))
 echo '</select>' ;
 ?>
 </div>
+<div class="field">
+  <label>Opmerkingen:</label>
+  <input type="text" name = "Comment" required><br>
+</div>
+
 
  <input type="submit" value="Voeg toe">
  <input type="button" onclick="alertValidIBAN(document.getElementById('iban').value);" value="Check IBAN">

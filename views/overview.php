@@ -60,7 +60,6 @@ if ($view == 'debtors') {
            FROM debtor
            INNER JOIN member_type ON debtor.member_type_id=member_type.id
            INNER JOIN creditor ON debtor.creditor_id=creditor.id
-	   WHERE Active = 0
 		       "
 		;
  $results = mysqli_query($link, $query);
@@ -89,62 +88,13 @@ while($row = mysqli_fetch_array($results))
   echo "<td class='col1'>" . $row['debtor_mandate_date'] . "</td>";
   echo "<td class='col1'>" . $row['creditor_name'] . "</td>";
   echo "<td>";
-  echo '<a href="index.php?page=uitschrijven&delete=debtor&id=' . htmlspecialchars($row['id']) . '">'
-        . htmlspecialchars('Uitschrijven')
-        . '</a>';
-  echo "</td></tr>";
-  }
-echo "</tbody></table>";
-}
-
-elseif ($view == 'exmembers') {
-?>
-<body>
-<h1>Overzicht Ex-leden</h1>
-<br>
-<div class="field2">
-<a id="dlink"  style="display:none;"></a>
-
-<input type="button" onclick="tableToExcel('debtorTable', 'debtor', 'ledenoverzicht.xls')" value="Exporteer naar Excel">
-</div>
-<br>
-<table id="debtorTable" class="sortable" border="0">
-<thead>
-<tr><th>Voornaam</th><th>Achternaam</th><th>Adres</th><th>PC</th><th>Plaats</th><th>Telefoon</th><th>Email</th><th class="sorttable_nosort">Verwijderen?</th></tr>
-</thead>
-<tbody>
-<?php
- $query = "SELECT debtor.*
-           FROM debtor
-           WHERE Active =1 
-                       "
-                ;
- $results = mysqli_query($link, $query);
- 
-while($row = mysqli_fetch_array($results))
-{ 
-  echo "<tr><td>";
-  echo '<a href="index.php?page=updateform&update=debtor&id=' . htmlspecialchars($row['id']) . '">'
-        . htmlspecialchars($row['member'])
-        . '</a>';
-  echo "</td><td>";
-  echo '<a href="index.php?page=updateform&update=debtor&id=' . htmlspecialchars($row['id']) . '">'
-        . htmlspecialchars($row['member_lastname'])
-        . '</a></td>';
-  echo "<td>" . $row['Adres'] . "</td>";
-  echo "<td>" . $row['PC'] . "</td>";
-  echo "<td>" . $row['City'] . "</td>";
-  echo "<td>" . $row['Phone'] . "</td>";
-  echo "<td>" . $row['Email'] . "</td>";
-  echo "<td>";
   echo '<a href="index.php?page=verwijder&delete=debtor&id=' . htmlspecialchars($row['id']) . '">'
-        . htmlspecialchars('Verwijderen')
+        . htmlspecialchars('Verwijder')
         . '</a>';
   echo "</td></tr>";
   }
 echo "</tbody></table>";
 }
-
 elseif ($view == 'creditors') {
 ?>
 <body>

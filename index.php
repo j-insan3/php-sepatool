@@ -43,6 +43,9 @@ if ($login->isUserLoggedIn() == true) {
 	if ($page == 'overzicht') {
 	include("views/overzicht.php");
 	}
+        elseif ($page == 'uitschrijven') {
+        include("views/uitschrijven.php");
+        }
 	elseif ($page == 'verwijder') {
 	include("views/verwijder.php");
 	}
