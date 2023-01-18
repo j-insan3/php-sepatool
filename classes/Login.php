@@ -32,7 +32,12 @@ class Login
         // if user tried to log out (happen when user clicks logout button)
         if (isset($_GET["logout"])) {
             $this->doLogout();
-        }
+        }elseif(isset($_SERVER['REMOTE_USER'])){
+	$logged_in_user = strtolower($_SERVER['REMOTE_USER']);
+        $_SESSION['user_name'] = $logged_in_user;
+        $user_name = $logged_in_user;
+        $_SESSION['user_login_status'] = 1;
+	}
         // login via post data (if user just submitted a login form)
         elseif (isset($_POST["login"])) {
             $this->dologinWithPostData();
@@ -52,6 +57,7 @@ class Login
 	}elseif($_SERVER['REMOTE_USER']){
         $logged_in_user = strtolower($_SERVER['REMOTE_USER']);
 	$_SESSION['user_name'] = $logged_in_user;
+	$user_name = $logged_in_user;
 	$_SESSION['user_login_status'] = 1;
         } elseif (!empty($_POST['user_name']) && !empty($_POST['user_password'])) {
 

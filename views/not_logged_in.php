@@ -33,6 +33,7 @@ if (isset($login)) {
         }
     }
 }
+echo $logged_in_user;
 ?>
 <div class="field">
     <label for="login_input_username">Gebruikersnaam</label>
