@@ -33,7 +33,7 @@ $active = htmlspecialchars($_GET["page"]);
       <ul>
          <li><a href='index.php?page=invoeren&invoeren=creditor'><span>Crediteuren</span></a>
          </li>
-         <li><a href='index.php?page=invoeren&invoeren=debtor'><span>Debiteuren</span></a>
+         <li><a href='index.php?page=invoeren&invoeren=debtor'><span>Leden</span></a>
          </li>
 		 <li><a href='index.php?page=invoeren&invoeren=membertype'><span>Lidmaatschappen</span></a>
          </li>
