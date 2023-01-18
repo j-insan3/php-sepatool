@@ -51,6 +51,8 @@ class Login
             $this->errors[] = "Password field was empty.";
 	}elseif($_SERVER['REMOTE_USER']){
         $logged_in_user = strtolower($_SERVER['REMOTE_USER']);
+	$_SESSION['user_name'] = $logged_in_user;
+	$_SESSION['user_login_status'] = 1;
         } elseif (!empty($_POST['user_name']) && !empty($_POST['user_password'])) {
 
             // create a database connection, using the constants from config/db.php (which we loaded in index.php)
