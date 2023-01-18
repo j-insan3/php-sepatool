@@ -11,7 +11,7 @@ include 'menu.php';
 Klik in de overzichten op de naam om de gegevens te wijzigen.
 <br>
 <br>
-In het menu invoeren kun je debiteuren, crediteuren en lidmaatschappen toevoegen.
+In het menu invoeren kun je leden, crediteuren en lidmaatschappen toevoegen.
 <br>
 <br>
 Maak eventuele extra gebruikers aan onder het kopje beheer.
