@@ -80,7 +80,7 @@ if ($invoeren == 'debtor') {
 <link href="style.css" rel="stylesheet" type="text/css">
 <form name="debtorform" class="user-form" action="index.php?page=create&create=debtor" method="post">
 <div class="field">
-  <label>Lid:</label>
+  <label>Voornaam lid:</label>
   <input type="text" name="member" autofocus required ><br>
 </div>
 <div class="field">
@@ -92,15 +92,15 @@ if ($invoeren == 'debtor') {
   <input type="text" name = "Adres" required><br>
 </div>
 <div class="field">
-  <label>PC:</label>
+  <label>Postcode:</label>
   <input type="text" name = "PC" required><br>
 </div>
 <div class="field">
-  <label>City:</label>
+  <label>Stad:</label>
   <input type="text" name = "City" required><br>
 </div>
 <div class="field">
-  <label>Phone:</label>
+  <label>Telefoon:</label>
   <input type="number" name = "Phone" required><br>
 </div>
 <div class="field">
@@ -108,7 +108,7 @@ if ($invoeren == 'debtor') {
   <input type="email" name = "Email" required><br>
 </div>
 <div class="field">
-  <label>BirthDate:</label>
+  <label>Geboortedatum:</label>
   <input type="date" name = "BirthDate" placeholder="(YYYY-MM-DD)" required><br>
 </div>
 <div class="field">

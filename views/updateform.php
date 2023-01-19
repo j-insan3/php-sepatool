@@ -135,7 +135,7 @@ $row = mysqli_fetch_array($result);
 <form class="user-form" action="index.php?page=update&update=debtor" method="post">
 <input type="hidden" name="id" value="<?php echo $select_id; ?>" /><br />
 <div class="field">
-<label>Lid:</label> <input type="text" name="member" value="<?php echo $row['member']; ?>" autofocus/><br />
+<label>Voornaam Lid:</label> <input type="text" name="member" value="<?php echo $row['member']; ?>" autofocus/><br />
  </div>
 <div class="field">
   <label>Achternaam:</label>
@@ -146,15 +146,15 @@ $row = mysqli_fetch_array($result);
   <input type="text" name = "Adres" value="<?php echo $row['Adres']; ?>"><br>
 </div>
 <div class="field">
-  <label>PC:</label>
+  <label>Postcode:</label>
   <input type="text" name = "PC" value="<?php echo $row['PC']; ?>"><br>
 </div>
 <div class="field">
-  <label>City:</label>
+  <label>Stad:</label>
   <input type="text" name = "City" value="<?php echo $row['City']; ?>"><br>
 </div>
 <div class="field">
-  <label>Phone:</label>
+  <label>Telefoon:</label>
   <input type="number" name = "Phone" value="<?php echo $row['Phone']; ?>"><br>
 </div>
 <div class="field">
@@ -162,7 +162,7 @@ $row = mysqli_fetch_array($result);
   <input type="email" name = "Email" value="<?php echo $row['Email']; ?>"><br>
 </div>
 <div class="field">
-  <label>BirthDate:</label>
+  <label>Geboortedatum:</label>
   <input type="date" name = "BirthDate" placeholder="(YYYY-MM-DD)" value="<?php echo $row['BirthDate']; ?>"><br>
 </div>
 <div class="field">
